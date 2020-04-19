@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+   <head>
+   <div align="center">
+      <style>
+         table, th, td {
+            border: 1px solid black;
+         }
+      </style>
+   </head>
+
+   <body>
+      <h1>Add to List form</h1>
+      
+ <form action="/submit" method="post">
+ <label for="task">Task:</label>
+ <input type="text" name="task"></input><br>
+ <label for="email">Email:</label>
+      <input type="text" name="email"></input><br>
+      <label for="select">Priority:</label>
+      <select name="priority">
+  <option value="low">Low</option>
+  <option value="medium">Medium</option>
+  <option value="high">High</option>
+	  </select><br>
+	  <input type="submit" value="Add To Do Item">
+	  </input>
+	</form>
+	<br>
+	<br>
+	<br>
+	    <h1>To do list</h1>
+      <table>
+         <tr>
+            <th>Task</th>
+            <th>Email</th>
+	        <th>Priority</th>	
+         </tr>
+         {% for i in tdlist %}
+         <tr>
+            <td>{{i[0]}}</td>
+            <td>{{i[1]}}</td>
+	    <td>{{i[2]}}</td>
+         </tr>
+         {% endfor %}
+      </table>
+  <form action="/clear" method=post>
+        <input type=submit value="Clear List">
+        </form>
+      </div>
+   </body>
+</html>
